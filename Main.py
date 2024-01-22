@@ -16,6 +16,8 @@ fishieXpos = []
 fishieYpos = []
 fishie2Xpos = []
 fishie2Ypos = []
+fishie3Xpos = []
+fishie3Ypos = []
 
 #load images
 castleImg = pygame.image.load("castle.png").convert_alpha()
@@ -34,6 +36,9 @@ pygame.Surface.set_colorkey (fishImg, [255,0,255])
 
 fishImg2 = pygame.image.load("fish2.png").convert_alpha()
 pygame.Surface.set_colorkey (fishImg2, [255,0,255])
+
+fishImg3 = pygame.image.load("fish3.png").convert_alpha()
+pygame.Surface.set_colorkey (fishImg3, [255,0,255])
 
 SandCastleImg = pygame.image.load("SandCastle.png").convert_alpha()
 pygame.Surface.set_colorkey (SandCastleImg, [255,255,255])
@@ -65,6 +70,10 @@ while 1: #game loop###########################################################
             elif mousePos[0]>25 and mousePos[0] < 200 and mousePos[1]>190 and mousePos[1]<340:
                fishie2Xpos.append(random.randrange(150, 800))
                fishie2Ypos.append(random.randrange(70,550))
+               
+            elif mousePos[0]>25 and mousePos[0] < 200 and mousePos[1]>340 and mousePos[1]<550:
+               fishie3Xpos.append(random.randrange(150, 800))
+               fishie3Ypos.append(random.randrange(70,550))
          
         if event.type == pygame.MOUSEMOTION:
             mousePos = event.pos        
@@ -95,12 +104,16 @@ while 1: #game loop###########################################################
     for i in range(len(fishie2Xpos)):
         screen.blit(fishImg2, (fishie2Xpos[i], fishie2Ypos[i]))
         
+    for i in range(len(fishie3Xpos)):
+        screen.blit(fishImg3, (fishie3Xpos[i], fishie3Ypos[i]))
+        
     #show sidebar images
     screen.blit(castleImg2, (1000, 50))
     screen.blit(SandCastleImg2, (1000, 400))
     screen.blit(plantImg2, (1010, 250))
     screen.blit(fishImg, (50, 50))
     screen.blit(fishImg2, (0, 200))
+    screen.blit(fishImg3, (0, 350))
     
     pygame.display.flip()# Update the display
 
